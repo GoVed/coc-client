@@ -114,7 +114,7 @@ class ApiCall(object):
             api.clans(name='theclan', minMembers=10)
     """
     
-    def __init__(self, bearer_token, endpoint, api_version, 
+    def __init__(self, bearer_token, endpoint='https://api.clashofclans.com', api_version='v1', 
                  extract_items=True, uri_parts=None, uri_args={}):
         """ Construct an ApiCall object.
         
@@ -234,25 +234,7 @@ class ClashOfClans(ApiCall):
                 r2 = r.next.get() # returns the second page
         
     """
-    def __init__(self, 
-                 bearer_token,
-                 endpoint='https://api.clashofclans.com', 
-                 api_version='v1',
-                 extract_items=True):
-        """ Contruct a ClashOfClans client.
-        
-            :param str bearer_token: the AP key provided by CoC 
-            :param str endpoint: the endpoint of the API. Default value is https://api.clashofclans.com 
-            :param str api_version: the version of the API. Default value is v1
-            :param boolean extract_items: if True, the response will be parsed and wraped in a list or 
-                    dictionary. Otherwise, the requests response will be returned.
-        """
-        super(ClashOfClans, self).__init__(
-            bearer_token=bearer_token,
-            endpoint=endpoint,
-            api_version=api_version,
-            extract_items=extract_items, 
-            uri_parts=None)
+ 
     
     
 ___all__= ["ClashOfClans", "ApiCall", "ApiResponse"]
